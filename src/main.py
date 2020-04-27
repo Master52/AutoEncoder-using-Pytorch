@@ -60,7 +60,7 @@ if __name__ == '__main__':
     optimizer = torch.optim.Adam(model.parameters(),weight_decay=1e-5)
 
     if LOAD == True:
-        model.load_state_dict(torch.load('PATH'))
+        model.load_state_dict(torch.load(PATH))
 
     for epoch in range(EPOCHS):
         for i,(images,_) in enumerate(train):
@@ -81,7 +81,7 @@ if __name__ == '__main__':
                     save_image(out,img_path)
 
         #SAVING
-        torch.save(model.state_dict(),'PATH')
+        torch.save(model.state_dict(),PATH)
 
     test = get_dataset(train=False)
     img,_ = next(iter(test))
